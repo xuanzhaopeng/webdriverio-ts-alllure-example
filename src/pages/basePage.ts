@@ -1,13 +1,22 @@
 export class BasePage {
   constructor() {
-    console.log('Base page constructor');
   }
 
-  waitUntilExist(element:
-              WebdriverIO.Client<WebdriverIO.RawResult<WebdriverIO.Element>>
-              & WebdriverIO.RawResult<WebdriverIO.Element>) {
+  waitUntilExist(element: WebdriverIO.Element<void>, timeoutInMs = 10000) {
+    return this.sandbox(() => element.waitForExist(timeoutInMs));
+  }
+
+  waitUntilDisplayed(element: WebdriverIO.Element<void>, timeoutInMs = 10000) {
+    return this.sandbox(() => element.waitForDisplayed(timeoutInMs));
+  }
+
+  waitUntilEnabled(element: WebdriverIO.Element<void>, timeoutInMs = 10000) {
+    return this.sandbox(() => element.waitForEnabled(timeoutInMs));
+  }
+
+  private sandbox(fn: () => void):boolean {
     try {
-      element.waitForExist();
+      fn();
       return true;
     } catch (e) {
       return false;

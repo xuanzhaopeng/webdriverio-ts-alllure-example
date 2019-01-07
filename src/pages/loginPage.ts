@@ -1,18 +1,18 @@
 import { BasePage } from './basePage';
 
 export class LoginPage extends BasePage {
-  get usernameInput() {
-    return browser.$('#UserName');
+  get usernameInput(): WebdriverIO.Element<void> {
+    return $('#UserName');
   }
-  get passwordInput() {
-    return browser.$('#Password');
+  get passwordInput(): WebdriverIO.Element<void> {
+    return $('#Password');
   }
-  get loginBtn() {
-    return browser.$('button[type="submit"]');
+  get loginBtn(): WebdriverIO.Element<void> {
+    return $('button[type="submit"]');
   }
 
-  validationMessage(message:string) {
-    return browser.$(`.validationMessage=${message}`);
+  validationMessage(message:string): WebdriverIO.Element<void> {
+    return $(`.validationMessage=${message}`);
   }
 
   constructor() {
