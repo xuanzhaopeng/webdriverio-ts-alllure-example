@@ -4,3 +4,4 @@ allure-results/
 .idea/
 wdio-allure-reporter/build/
 wdio-allure-reporter/node_modules/
+src/**/*.js

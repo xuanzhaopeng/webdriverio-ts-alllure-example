@@ -1,4 +1,4 @@
-## Example for Selenium test in typescript
+## Webdriverio demo project in Typescript with AllureReport
 
 ### Run it
 ```bash

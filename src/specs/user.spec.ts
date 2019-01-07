@@ -15,8 +15,8 @@ describe('User', function () {
     });
 
     then('I should see error message',  () => {
-      const ele = getPage(LoginPage).validationMessage('Invalid Username or Password');
-      expect(getPage(LoginPage).waitUntilExist(ele),
+      const loginPage = getPage(LoginPage);
+      expect(loginPage.waitUntilExist(loginPage.validationMessage('Invalid Username or Password')),
              'The invalid account error message is not exist').to.be.true;
     });
   });
