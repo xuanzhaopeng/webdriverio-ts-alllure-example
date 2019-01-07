@@ -1,0 +1,38 @@
+{
+  "name": "nodejs-selenium-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "cd wdio-allure-reporter && npm install && npm run clean && npm run build",
+    "postinstall": "selenium-standalone install",
+    "lint": "tslint --fix src/**/*.ts",
+    "clean": "rm -rf allure-results && rm -rf dist",
+    "build": "npm run lint && rm -rf dist && tsc --outDir dist --rootDir ./src && mkdir -p allure-results",
+    "test": "npm run build && wdio wdio.conf.js",
+    "report": "allure serve ./allure-results"
+  },
+  "author": "Zhaopeng XUAN",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.18",
+    "@types/webdriverio": "^4.13.1",
+    "@wdio/allure-reporter": "file:wdio-allure-reporter",
+    "@wdio/cli": "^5.2.4",
+    "@wdio/local-runner": "^5.2.4",
+    "@wdio/mocha-framework": "^5.2.3",
+    "@wdio/selenium-standalone-service": "^5.2.2",
+    "@wdio/sync": "^5.2.3",
+    "allure-commandline": "^2.8.1",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "npm-run-all": "^4.1.5",
+    "selenium-standalone": "^6.11.0",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.12.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^3.2.2"
+  }
+}
